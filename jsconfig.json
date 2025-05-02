@@ -1,7 +1,23 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
     }
   }
 }
+
+/*
+"baseUrl": ".": Bu ayar, projenin temel dizinini (base directory) belirtir.
+. demek, bu dosyanın bulunduğu dizin (genellikle proje kök dizini) baz alınacak demektir.
+
+"paths": Bu kısım, yol kısaltmaları (alias) tanımlar.
+Örnek: import { MyComponent } from '@/components/MyComponent';
+
+"@/*": ["./*"]
+@/ bir alias'tır. Genelde @ sembolü proje kökünü temsil eder.
+"./*" ise @/'ın hangi klasörü temsil ettiğini söyler -- burada proje kök dizini.
+
+Bu ayar sayesinde, uzun ve karmaşık göreli yollar (../../../) yerine, kısa ve anlamlı yollar kullanılır. 
+Özellikle büyük projelerde, import'ların yönetimini çok daha kolay ve okunabilir hâle getirir.
+*/

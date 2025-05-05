@@ -1,19 +1,18 @@
 import React from "react";
 import { notFound } from "next/navigation";
 
+import { getMovie } from "@/services/movie";
+
 import MovieContainer from "@/containers/movie";
-import Movies from "@/mocks/movies.json";
 
 async function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 async function MoviePage({ params, searchParams }) {
-  await delay(2000);
+  await delay(1000);
 
-  const movieDetail = Movies.results.find(
-    (movie) => movie.id.toString() === params.id
-  );
+  const movieDetail = await getMovie(params.id);
 
   if (!movieDetail) notFound(); // movieDetail yok ise 404 sayfasına gideceğiz.
   if (searchParams.error === "true") throw new Error("Error happened");
